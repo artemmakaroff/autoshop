@@ -8,8 +8,10 @@
 
 #import "MainViewController.h"
 #import "NewCarViewController.h"
+#import "MainViewCell.h"
+#import "BMW.h"
 
-@interface MainViewController ()
+@interface MainViewController () <NewCarViewControllerDelegate>
 
 @end
 
@@ -17,12 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    Auto *autoCar = [[Auto alloc] init];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.array = [autoCar carCompanyArray];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,16 +31,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Delegates
+
+- (void)addNewCar:(NewCarViewController *)controller newCarDictionary:(NSDictionary *)dictionary {
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 1;
+    
+    return self.array.count;
 }
 
 
@@ -47,8 +54,9 @@
     
     static NSString *reuseIdentifier = @"reuseIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    MainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    cell.modelNameLabel.text = [self.array objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -105,6 +113,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     NewCarViewController *newCarViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewCarViewController"];
+    
+    newCarViewController.delegate = self;
     
     [self.navigationController pushViewController:newCarViewController animated:YES];
     

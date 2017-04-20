@@ -12,4 +12,6 @@
 
 - (IBAction)addNewCar:(id)sender;
 
+@property (strong, nonatomic) NSArray *array;
+
 @end

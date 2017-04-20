@@ -56,15 +56,17 @@
     
     if ([self.carCompanyLabel.text isEqualToString:@"BMW"]) {
         BMW *bmw = [[BMW alloc] init];
+        bmw.carMutableArray = [[NSMutableArray alloc] init];
         bmw.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
         [bmw.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
         [bmw.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
         [bmw.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
         [bmw.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
         [bmw.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
-
+        NSLog(@"%@", bmw.descriptionCarDictionary);
+        [bmw.carMutableArray addObject:bmw.descriptionCarDictionary];
+        NSLog(@"%@", bmw.carMutableArray);
         [self.delegate addNewCar:self newCarDictionary:bmw.descriptionCarDictionary];
-        
         [self.navigationController popViewControllerAnimated:YES];
         
     } else if ([self.carCompanyLabel.text isEqualToString:@"Mercedes Benz"]) {
@@ -77,6 +79,32 @@
         [mercedezBenz.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
         
         [self.delegate addNewCar:self newCarDictionary:mercedezBenz.descriptionCarDictionary];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } else if ([self.carCompanyLabel.text isEqualToString:@"Toyota"]) {
+        Toyota *toyota = [[Toyota alloc] init];
+        toyota.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
+        [toyota.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
+        [toyota.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
+        [toyota.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
+        [toyota.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
+        [toyota.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
+        
+        [self.delegate addNewCar:self newCarDictionary:toyota.descriptionCarDictionary];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } else if ([self.carCompanyLabel.text isEqualToString:@"Volkswagen"]) {
+        Volkswagen *volkswagen = [[Volkswagen alloc] init];
+        volkswagen.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
+        [volkswagen.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
+        [volkswagen.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
+        [volkswagen.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
+        [volkswagen.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
+        [volkswagen.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
+        
+        [self.delegate addNewCar:self newCarDictionary:volkswagen.descriptionCarDictionary];
         
         [self.navigationController popViewControllerAnimated:YES];
         

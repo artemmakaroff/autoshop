@@ -16,6 +16,7 @@
 @property (strong, nonatomic)NSString *color;
 @property (strong, nonatomic)NSNumber *price;
 @property (strong, nonatomic)NSMutableDictionary *descriptionCarDictionary;
+@property (strong, nonatomic) NSMutableArray *carMutableArray;
 
 - (NSArray *)carCompanyArray;
 
