@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C1DDE821EA8B986000D07A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDE811EA8B986000D07A3 /* main.m */; };
+		2C1DDE851EA8B986000D07A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDE841EA8B986000D07A3 /* AppDelegate.m */; };
+		2C1DDE8B1EA8B986000D07A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DDE891EA8B986000D07A3 /* Main.storyboard */; };
+		2C1DDE8D1EA8B986000D07A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DDE8C1EA8B986000D07A3 /* Assets.xcassets */; };
+		2C1DDE901EA8B986000D07A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DDE8E1EA8B986000D07A3 /* LaunchScreen.storyboard */; };
+		2C1DDE9B1EA8B986000D07A3 /* AutoShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDE9A1EA8B986000D07A3 /* AutoShopTests.m */; };
+		2C1DDEA61EA8B986000D07A3 /* AutoShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEA51EA8B986000D07A3 /* AutoShopUITests.m */; };
+		2C1DDEB81EA8BAE9000D07A3 /* Auto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEB71EA8BAE9000D07A3 /* Auto.m */; };
+		2C1DDEBB1EA8BC4F000D07A3 /* Volkswagen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEBA1EA8BC4F000D07A3 /* Volkswagen.m */; };
+		2CDE2E4C1EA8C3E900CE850F /* MercedezBenz.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E4B1EA8C3E900CE850F /* MercedezBenz.m */; };
+		2CDE2E4F1EA8C48500CE850F /* BMW.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E4E1EA8C48500CE850F /* BMW.m */; };
+		2CDE2E521EA8C4FB00CE850F /* Toyota.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E511EA8C4FB00CE850F /* Toyota.m */; };
+		2CDE2E551EA8CAB500CE850F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E541EA8CAB500CE850F /* MainViewController.m */; };
+		2CDE2E5A1EA8CF1B00CE850F /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E591EA8CF1B00CE850F /* MainViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C1DDE971EA8B986000D07A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C1DDE751EA8B985000D07A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C1DDE7C1EA8B985000D07A3;
+			remoteInfo = AutoShop;
+		};
+		2C1DDEA21EA8B986000D07A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C1DDE751EA8B985000D07A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C1DDE7C1EA8B985000D07A3;
+			remoteInfo = AutoShop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C1DDE7D1EA8B986000D07A3 /* AutoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1DDE811EA8B986000D07A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C1DDE831EA8B986000D07A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2C1DDE841EA8B986000D07A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2C1DDE8A1EA8B986000D07A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C1DDE8C1EA8B986000D07A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C1DDE8F1EA8B986000D07A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C1DDE911EA8B986000D07A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C1DDE961EA8B986000D07A3 /* AutoShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1DDE9A1EA8B986000D07A3 /* AutoShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoShopTests.m; sourceTree = "<group>"; };
+		2C1DDE9C1EA8B986000D07A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C1DDEA11EA8B986000D07A3 /* AutoShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C1DDEA51EA8B986000D07A3 /* AutoShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoShopUITests.m; sourceTree = "<group>"; };
+		2C1DDEA71EA8B986000D07A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C1DDEB61EA8BAE9000D07A3 /* Auto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auto.h; sourceTree = "<group>"; };
+		2C1DDEB71EA8BAE9000D07A3 /* Auto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auto.m; sourceTree = "<group>"; };
+		2C1DDEB91EA8BC4F000D07A3 /* Volkswagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volkswagen.h; sourceTree = "<group>"; };
+		2C1DDEBA1EA8BC4F000D07A3 /* Volkswagen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volkswagen.m; sourceTree = "<group>"; };
+		2CDE2E4A1EA8C3E900CE850F /* MercedezBenz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercedezBenz.h; sourceTree = "<group>"; };
+		2CDE2E4B1EA8C3E900CE850F /* MercedezBenz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercedezBenz.m; sourceTree = "<group>"; };
+		2CDE2E4D1EA8C48500CE850F /* BMW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMW.h; sourceTree = "<group>"; };
+		2CDE2E4E1EA8C48500CE850F /* BMW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMW.m; sourceTree = "<group>"; };
+		2CDE2E501EA8C4FB00CE850F /* Toyota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toyota.h; sourceTree = "<group>"; };
+		2CDE2E511EA8C4FB00CE850F /* Toyota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toyota.m; sourceTree = "<group>"; };
+		2CDE2E531EA8CAB500CE850F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2CDE2E541EA8CAB500CE850F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2CDE2E581EA8CF1B00CE850F /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
+		2CDE2E591EA8CF1B00CE850F /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C1DDE7A1EA8B985000D07A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE931EA8B986000D07A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE9E1EA8B986000D07A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C1DDE741EA8B985000D07A3 = {
+			isa = PBXGroup;
+			children = (
+				2CDE2E561EA8CEF700CE850F /* Cells */,
+				2C1DDEB51EA8BAC7000D07A3 /* Controller */,
+				2C1DDEB41EA8BABA000D07A3 /* View */,
+				2C1DDEB31EA8BA8C000D07A3 /* Model */,
+				2C1DDE7F1EA8B986000D07A3 /* AutoShop */,
+				2C1DDE991EA8B986000D07A3 /* AutoShopTests */,
+				2C1DDEA41EA8B986000D07A3 /* AutoShopUITests */,
+				2C1DDE7E1EA8B986000D07A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C1DDE7E1EA8B986000D07A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDE7D1EA8B986000D07A3 /* AutoShop.app */,
+				2C1DDE961EA8B986000D07A3 /* AutoShopTests.xctest */,
+				2C1DDEA11EA8B986000D07A3 /* AutoShopUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C1DDE7F1EA8B986000D07A3 /* AutoShop */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDE891EA8B986000D07A3 /* Main.storyboard */,
+				2C1DDE8C1EA8B986000D07A3 /* Assets.xcassets */,
+				2C1DDE8E1EA8B986000D07A3 /* LaunchScreen.storyboard */,
+				2C1DDE911EA8B986000D07A3 /* Info.plist */,
+				2C1DDE801EA8B986000D07A3 /* Supporting Files */,
+			);
+			path = AutoShop;
+			sourceTree = "<group>";
+		};
+		2C1DDE801EA8B986000D07A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDE831EA8B986000D07A3 /* AppDelegate.h */,
+				2C1DDE841EA8B986000D07A3 /* AppDelegate.m */,
+				2C1DDE811EA8B986000D07A3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C1DDE991EA8B986000D07A3 /* AutoShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDE9A1EA8B986000D07A3 /* AutoShopTests.m */,
+				2C1DDE9C1EA8B986000D07A3 /* Info.plist */,
+			);
+			path = AutoShopTests;
+			sourceTree = "<group>";
+		};
+		2C1DDEA41EA8B986000D07A3 /* AutoShopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDEA51EA8B986000D07A3 /* AutoShopUITests.m */,
+				2C1DDEA71EA8B986000D07A3 /* Info.plist */,
+			);
+			path = AutoShopUITests;
+			sourceTree = "<group>";
+		};
+		2C1DDEB31EA8BA8C000D07A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C1DDEB61EA8BAE9000D07A3 /* Auto.h */,
+				2C1DDEB71EA8BAE9000D07A3 /* Auto.m */,
+				2C1DDEB91EA8BC4F000D07A3 /* Volkswagen.h */,
+				2C1DDEBA1EA8BC4F000D07A3 /* Volkswagen.m */,
+				2CDE2E4A1EA8C3E900CE850F /* MercedezBenz.h */,
+				2CDE2E4B1EA8C3E900CE850F /* MercedezBenz.m */,
+				2CDE2E4D1EA8C48500CE850F /* BMW.h */,
+				2CDE2E4E1EA8C48500CE850F /* BMW.m */,
+				2CDE2E501EA8C4FB00CE850F /* Toyota.h */,
+				2CDE2E511EA8C4FB00CE850F /* Toyota.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2C1DDEB41EA8BABA000D07A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2C1DDEB51EA8BAC7000D07A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CDE2E531EA8CAB500CE850F /* MainViewController.h */,
+				2CDE2E541EA8CAB500CE850F /* MainViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2CDE2E561EA8CEF700CE850F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2CDE2E581EA8CF1B00CE850F /* MainViewCell.h */,
+				2CDE2E591EA8CF1B00CE850F /* MainViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C1DDE7C1EA8B985000D07A3 /* AutoShop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C1DDEAA1EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShop" */;
+			buildPhases = (
+				2C1DDE791EA8B985000D07A3 /* Sources */,
+				2C1DDE7A1EA8B985000D07A3 /* Frameworks */,
+				2C1DDE7B1EA8B985000D07A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoShop;
+			productName = AutoShop;
+			productReference = 2C1DDE7D1EA8B986000D07A3 /* AutoShop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C1DDE951EA8B986000D07A3 /* AutoShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C1DDEAD1EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShopTests" */;
+			buildPhases = (
+				2C1DDE921EA8B986000D07A3 /* Sources */,
+				2C1DDE931EA8B986000D07A3 /* Frameworks */,
+				2C1DDE941EA8B986000D07A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C1DDE981EA8B986000D07A3 /* PBXTargetDependency */,
+			);
+			name = AutoShopTests;
+			productName = AutoShopTests;
+			productReference = 2C1DDE961EA8B986000D07A3 /* AutoShopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2C1DDEA01EA8B986000D07A3 /* AutoShopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C1DDEB01EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShopUITests" */;
+			buildPhases = (
+				2C1DDE9D1EA8B986000D07A3 /* Sources */,
+				2C1DDE9E1EA8B986000D07A3 /* Frameworks */,
+				2C1DDE9F1EA8B986000D07A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C1DDEA31EA8B986000D07A3 /* PBXTargetDependency */,
+			);
+			name = AutoShopUITests;
+			productName = AutoShopUITests;
+			productReference = 2C1DDEA11EA8B986000D07A3 /* AutoShopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C1DDE751EA8B985000D07A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Artem Makarov";
+				TargetAttributes = {
+					2C1DDE7C1EA8B985000D07A3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8EK7FJVBLD;
+						ProvisioningStyle = Automatic;
+					};
+					2C1DDE951EA8B986000D07A3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8EK7FJVBLD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2C1DDE7C1EA8B985000D07A3;
+					};
+					2C1DDEA01EA8B986000D07A3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8EK7FJVBLD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2C1DDE7C1EA8B985000D07A3;
+					};
+				};
+			};
+			buildConfigurationList = 2C1DDE781EA8B985000D07A3 /* Build configuration list for PBXProject "AutoShop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C1DDE741EA8B985000D07A3;
+			productRefGroup = 2C1DDE7E1EA8B986000D07A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C1DDE7C1EA8B985000D07A3 /* AutoShop */,
+				2C1DDE951EA8B986000D07A3 /* AutoShopTests */,
+				2C1DDEA01EA8B986000D07A3 /* AutoShopUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C1DDE7B1EA8B985000D07A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C1DDE901EA8B986000D07A3 /* LaunchScreen.storyboard in Resources */,
+				2C1DDE8D1EA8B986000D07A3 /* Assets.xcassets in Resources */,
+				2C1DDE8B1EA8B986000D07A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE941EA8B986000D07A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE9F1EA8B986000D07A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C1DDE791EA8B985000D07A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C1DDE851EA8B986000D07A3 /* AppDelegate.m in Sources */,
+				2CDE2E4F1EA8C48500CE850F /* BMW.m in Sources */,
+				2CDE2E521EA8C4FB00CE850F /* Toyota.m in Sources */,
+				2CDE2E551EA8CAB500CE850F /* MainViewController.m in Sources */,
+				2C1DDEBB1EA8BC4F000D07A3 /* Volkswagen.m in Sources */,
+				2CDE2E4C1EA8C3E900CE850F /* MercedezBenz.m in Sources */,
+				2CDE2E5A1EA8CF1B00CE850F /* MainViewCell.m in Sources */,
+				2C1DDEB81EA8BAE9000D07A3 /* Auto.m in Sources */,
+				2C1DDE821EA8B986000D07A3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE921EA8B986000D07A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C1DDE9B1EA8B986000D07A3 /* AutoShopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C1DDE9D1EA8B986000D07A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C1DDEA61EA8B986000D07A3 /* AutoShopUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C1DDE981EA8B986000D07A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C1DDE7C1EA8B985000D07A3 /* AutoShop */;
+			targetProxy = 2C1DDE971EA8B986000D07A3 /* PBXContainerItemProxy */;
+		};
+		2C1DDEA31EA8B986000D07A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C1DDE7C1EA8B985000D07A3 /* AutoShop */;
+			targetProxy = 2C1DDEA21EA8B986000D07A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C1DDE891EA8B986000D07A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C1DDE8A1EA8B986000D07A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C1DDE8E1EA8B986000D07A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C1DDE8F1EA8B986000D07A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C1DDEA81EA8B986000D07A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C1DDEA91EA8B986000D07A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C1DDEAB1EA8B986000D07A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C1DDEAC1EA8B986000D07A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2C1DDEAE1EA8B986000D07A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoShop.app/AutoShop";
+			};
+			name = Debug;
+		};
+		2C1DDEAF1EA8B986000D07A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoShop.app/AutoShop";
+			};
+			name = Release;
+		};
+		2C1DDEB11EA8B986000D07A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AutoShop;
+			};
+			name = Debug;
+		};
+		2C1DDEB21EA8B986000D07A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8EK7FJVBLD;
+				INFOPLIST_FILE = AutoShopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Makaroff.AutoShopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AutoShop;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C1DDE781EA8B985000D07A3 /* Build configuration list for PBXProject "AutoShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1DDEA81EA8B986000D07A3 /* Debug */,
+				2C1DDEA91EA8B986000D07A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C1DDEAA1EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1DDEAB1EA8B986000D07A3 /* Debug */,
+				2C1DDEAC1EA8B986000D07A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C1DDEAD1EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1DDEAE1EA8B986000D07A3 /* Debug */,
+				2C1DDEAF1EA8B986000D07A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C1DDEB01EA8B986000D07A3 /* Build configuration list for PBXNativeTarget "AutoShopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C1DDEB11EA8B986000D07A3 /* Debug */,
+				2C1DDEB21EA8B986000D07A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C1DDE751EA8B985000D07A3 /* Project object */;
+}
