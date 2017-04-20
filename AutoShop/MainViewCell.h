@@ -10,4 +10,11 @@
 
 @interface MainViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *modelNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearOfIssueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *colorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
+
+
 @end

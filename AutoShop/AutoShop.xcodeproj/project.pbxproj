@@ -16,6 +16,8 @@
 		2C1DDEA61EA8B986000D07A3 /* AutoShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEA51EA8B986000D07A3 /* AutoShopUITests.m */; };
 		2C1DDEB81EA8BAE9000D07A3 /* Auto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEB71EA8BAE9000D07A3 /* Auto.m */; };
 		2C1DDEBB1EA8BC4F000D07A3 /* Volkswagen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DDEBA1EA8BC4F000D07A3 /* Volkswagen.m */; };
+		2C76A9521EA8E40F005A5681 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C76A9511EA8E40F005A5681 /* CompanyViewController.m */; };
+		2C76A9581EA8E8EE005A5681 /* NewCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C76A9571EA8E8EE005A5681 /* NewCarViewController.m */; };
 		2CDE2E4C1EA8C3E900CE850F /* MercedezBenz.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E4B1EA8C3E900CE850F /* MercedezBenz.m */; };
 		2CDE2E4F1EA8C48500CE850F /* BMW.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E4E1EA8C48500CE850F /* BMW.m */; };
 		2CDE2E521EA8C4FB00CE850F /* Toyota.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE2E511EA8C4FB00CE850F /* Toyota.m */; };
@@ -59,6 +61,10 @@
 		2C1DDEB71EA8BAE9000D07A3 /* Auto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auto.m; sourceTree = "<group>"; };
 		2C1DDEB91EA8BC4F000D07A3 /* Volkswagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volkswagen.h; sourceTree = "<group>"; };
 		2C1DDEBA1EA8BC4F000D07A3 /* Volkswagen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volkswagen.m; sourceTree = "<group>"; };
+		2C76A9501EA8E40F005A5681 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyViewController.h; path = AutoShop/CompanyViewController.h; sourceTree = "<group>"; };
+		2C76A9511EA8E40F005A5681 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyViewController.m; path = AutoShop/CompanyViewController.m; sourceTree = "<group>"; };
+		2C76A9561EA8E8EE005A5681 /* NewCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCarViewController.h; sourceTree = "<group>"; };
+		2C76A9571EA8E8EE005A5681 /* NewCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCarViewController.m; sourceTree = "<group>"; };
 		2CDE2E4A1EA8C3E900CE850F /* MercedezBenz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercedezBenz.h; sourceTree = "<group>"; };
 		2CDE2E4B1EA8C3E900CE850F /* MercedezBenz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercedezBenz.m; sourceTree = "<group>"; };
 		2CDE2E4D1EA8C48500CE850F /* BMW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMW.h; sourceTree = "<group>"; };
@@ -189,6 +195,10 @@
 			children = (
 				2CDE2E531EA8CAB500CE850F /* MainViewController.h */,
 				2CDE2E541EA8CAB500CE850F /* MainViewController.m */,
+				2C76A9561EA8E8EE005A5681 /* NewCarViewController.h */,
+				2C76A9571EA8E8EE005A5681 /* NewCarViewController.m */,
+				2C76A9501EA8E40F005A5681 /* CompanyViewController.h */,
+				2C76A9511EA8E40F005A5681 /* CompanyViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -338,11 +348,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C76A9521EA8E40F005A5681 /* CompanyViewController.m in Sources */,
 				2C1DDE851EA8B986000D07A3 /* AppDelegate.m in Sources */,
 				2CDE2E4F1EA8C48500CE850F /* BMW.m in Sources */,
 				2CDE2E521EA8C4FB00CE850F /* Toyota.m in Sources */,
 				2CDE2E551EA8CAB500CE850F /* MainViewController.m in Sources */,
 				2C1DDEBB1EA8BC4F000D07A3 /* Volkswagen.m in Sources */,
+				2C76A9581EA8E8EE005A5681 /* NewCarViewController.m in Sources */,
 				2CDE2E4C1EA8C3E900CE850F /* MercedezBenz.m in Sources */,
 				2CDE2E5A1EA8CF1B00CE850F /* MainViewCell.m in Sources */,
 				2C1DDEB81EA8BAE9000D07A3 /* Auto.m in Sources */,

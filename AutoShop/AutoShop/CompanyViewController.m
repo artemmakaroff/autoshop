@@ -1,28 +1,29 @@
 //
-//  MainViewController.m
+//  CompanyViewController.m
 //  AutoShop
 //
 //  Created by Artem Makarov on 20.04.17.
 //  Copyright © 2017 Artem Makarov. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "CompanyViewController.h"
+#import "Auto.h"
 #import "NewCarViewController.h"
 
-@interface MainViewController ()
+@interface CompanyViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation CompanyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    Auto *autoModel = [[Auto alloc] init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.carsArray = [autoModel carCompanyArray];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,25 +33,47 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 1;
+    return self.carsArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *reuseIdentifier = @"reuseIdentifier";
+    static NSString *cellIdentifier = @"cellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
+    cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+    
+    cell.textLabel.text = [self.carsArray objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"buttonSaveUserInteraction" object:nil];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    NSInteger row = indexPath.row;
+    
+    NSString *string = [NSString stringWithFormat:@"%@", self.carsArray[row]];
+    
+    
+    [self.delegate addCompanyCar:self didFinishEnterString:string];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -98,15 +121,4 @@
 }
 */
 
-#pragma mark - Actions
-
-- (IBAction)addNewCar:(id)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    NewCarViewController *newCarViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewCarViewController"];
-    
-    [self.navigationController pushViewController:newCarViewController animated:YES];
-    
-}
 @end

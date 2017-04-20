@@ -10,4 +10,6 @@
 
 @interface MainViewController : UITableViewController
 
+- (IBAction)addNewCar:(id)sender;
+
 @end

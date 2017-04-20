@@ -10,4 +10,12 @@
 
 @implementation Auto
 
+- (NSArray *)carCompanyArray {
+    
+    self.modelArray = [[NSArray alloc] initWithObjects:@"BMW", @"Mercedes Benz", @"Toyota", @"Volkswagen", nil];
+    
+    return self.modelArray;
+    
+}
+
 @end

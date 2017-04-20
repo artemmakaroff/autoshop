@@ -15,5 +15,8 @@
 @property (strong, nonatomic)NSNumber *yearOfIssue;
 @property (strong, nonatomic)NSString *color;
 @property (strong, nonatomic)NSNumber *price;
+@property (strong, nonatomic)NSMutableDictionary *descriptionCarDictionary;
+
+- (NSArray *)carCompanyArray;
 
 @end
