@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Auto.h"
 
 @protocol CompanyViewControllerDelegate;
 
 @interface CompanyViewController : UITableViewController
 
+@property (strong, nonatomic) Auto *autoClass;
 @property(strong, nonatomic)NSArray *carsArray;
 @property (weak, nonatomic) id <CompanyViewControllerDelegate> delegate;
 

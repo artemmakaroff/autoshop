@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMW.h"
+#import "MercedezBenz.h"
+#import "Toyota.h"
+#import "Volkswagen.h"
 
 @interface MainViewController : UITableViewController
 
-- (IBAction)addNewCar:(id)sender;
+@property (strong, nonatomic) NSMutableArray *sectionArray;
+@property (strong, nonatomic) NSDictionary *rowDictionary;
+@property (strong, nonatomic) BMW *bmw;
+@property (strong, nonatomic) MercedezBenz *mercedesBenz;
+@property (strong, nonatomic) Toyota *toyota;
+@property (strong, nonatomic) Volkswagen *volkswagen;
 
-@property (strong, nonatomic) NSArray *array;
+- (IBAction)addNewCar:(id)sender;
 
 @end

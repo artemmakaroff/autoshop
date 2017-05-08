@@ -7,9 +7,11 @@
 //
 
 #import "Auto.h"
+#import "NewCarViewController.h"
 
-@interface BMW : Auto
+@interface BMW : Auto <NewCarViewControllerDelegate>
 
-- (NSArray *)modelArray;
+@property (strong, nonatomic) NSMutableArray *bmwArray;
 
 @end
+

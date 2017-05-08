@@ -8,13 +8,8 @@
 
 #import "NewCarViewController.h"
 #import "CompanyViewController.h"
-#import "Auto.h"
-#import "BMW.h"
-#import "MercedezBenz.h"
-#import "Toyota.h"
-#import "Volkswagen.h"
 
-@interface NewCarViewController () <UITextFieldDelegate, CompanyViewControllerDelegate>
+@interface NewCarViewController () <UITextFieldDelegate, CompanyViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end
 
@@ -27,9 +22,134 @@
     self.yearOfIssueTextField.delegate = self;
     self.colorTextField.delegate = self;
     self.priceTextField.delegate = self;
+
+    self.carColor = [[CarColor alloc] init];
+    
+    //Создание кнопки Done для firstHoursTextField
+    CGRect rectForToolBar = CGRectMake(0, 0, self.view.frame.size.width, 44);
+    
+    UIToolbar *modelToolBar = [[UIToolbar alloc] initWithFrame:rectForToolBar];
+    [modelToolBar setTintColor:[UIColor grayColor]];
+    
+    UIBarButtonItem *modelCarDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                         style:UIBarButtonItemStyleDone
+                                                                        target:self
+                                                                        action:@selector(doneCarModel:)];
+    
+    [modelToolBar setItems:[NSArray arrayWithObjects:modelCarDoneButton, nil]];
+    [self.carModelTextField setInputAccessoryView:modelToolBar];
+    
+    UIToolbar *colorToolBar = [[UIToolbar alloc] initWithFrame:rectForToolBar];
+    [colorToolBar setTintColor:[UIColor grayColor]];
+    
+    
+    UIBarButtonItem *colorDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                         style:UIBarButtonItemStyleDone
+                                                                        target:self
+                                                                        action:@selector(doneCarColor:)];
+    
+    [colorToolBar setItems:[NSArray arrayWithObjects:colorDoneButton, nil]];
+    [self.colorTextField setInputAccessoryView:colorToolBar];
+    
+    UIToolbar *yearToolBar = [[UIToolbar alloc] initWithFrame:rectForToolBar];
+    [yearToolBar setTintColor:[UIColor grayColor]];
+    
+    
+    UIBarButtonItem *yearDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                        style:UIBarButtonItemStyleDone
+                                                                       target:self
+                                                                       action:@selector(doneCarYear:)];
+    
+    [yearToolBar setItems:[NSArray arrayWithObjects:yearDoneButton, nil]];
+    [self.yearOfIssueTextField setInputAccessoryView:yearToolBar];
     
 }
 
+#pragma mark - UIPickerViewDelegate
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    
+    return 1;
+}
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"BMW"]) {
+       return self.toyotaArray.count;
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Mercedes Benz"]) {
+        return self.mercedesBenzArray.count;
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Toyota"]) {
+        return self.toyotaArray.count;
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Volkswagen"]) {
+        return self.volkswagenArray.count;
+    }
+    
+    if ([pickerView isEqual:self.colorPicker]) {
+        return self.carColor.colorArray.count;
+    }
+    
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+
+    if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"BMW"]) {
+        return [self.bmwArray objectAtIndex:row];
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Mercedes Benz"]) {
+        return [self.mercedesBenzArray objectAtIndex:row];
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Toyota"]) {
+        return [self.toyotaArray objectAtIndex:row];
+        
+    } else if ([pickerView isEqual:self.modelPicker] && [self.carCompanyLabel.text isEqualToString:@"Volkswagen"]) {
+        return [self.volkswagenArray objectAtIndex:row];
+    }
+    
+    if ([pickerView isEqual:self.colorPicker]) {
+        return [self.carColor.colorArray objectAtIndex:row];
+    }
+    
+    return nil;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if ([textField isEqual:self.carModelTextField]) {
+        
+        self.modelPicker = [[UIPickerView alloc] init];
+        self.modelPicker.dataSource = self;
+        self.modelPicker.delegate = self;
+        
+        self.modelPicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.modelPicker.showsSelectionIndicator = YES;
+        self.carModelTextField.inputView  = self.modelPicker;
+    }
+    
+    if ([textField isEqual:self.colorTextField]) {
+        
+        self.colorPicker = [[UIPickerView alloc] init];
+        self.colorPicker.dataSource = self;
+        self.colorPicker.delegate = self;
+        
+        self.colorPicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.colorPicker.showsSelectionIndicator = YES;
+        self.colorTextField.inputView  = self.colorPicker;
+    }
+    
+    return YES;
+}
 
 #pragma mark - Delegates
 
@@ -54,63 +174,31 @@
 
 - (IBAction)saveAction:(id)sender {
     
+    self.carDicionary = [[NSMutableDictionary alloc] init];
+    
+    [self.carDicionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
+    [self.carDicionary setObject:self.carModelTextField.text forKey:@"CarModel"];
+    [self.carDicionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
+    [self.carDicionary setObject:self.colorTextField.text forKey:@"CarColor"];
+    [self.carDicionary setObject:self.priceTextField.text forKey:@"CarPrice"];
+    [self.carDicionary setObject:@"" forKey:@"URLCar"];
+    
     if ([self.carCompanyLabel.text isEqualToString:@"BMW"]) {
-        BMW *bmw = [[BMW alloc] init];
-        bmw.carMutableArray = [[NSMutableArray alloc] init];
-        bmw.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
-        [bmw.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
-        [bmw.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
-        [bmw.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
-        [bmw.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
-        [bmw.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
-        NSLog(@"%@", bmw.descriptionCarDictionary);
-        [bmw.carMutableArray addObject:bmw.descriptionCarDictionary];
-        NSLog(@"%@", bmw.carMutableArray);
-        [self.delegate addNewCar:self newCarDictionary:bmw.descriptionCarDictionary];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.bmwDelegate addNewCar:self bmwDicitionary:self.carDicionary];
         
     } else if ([self.carCompanyLabel.text isEqualToString:@"Mercedes Benz"]) {
-        MercedezBenz *mercedezBenz = [[MercedezBenz alloc] init];
-        mercedezBenz.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
-        [mercedezBenz.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
-        [mercedezBenz.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
-        [mercedezBenz.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
-        [mercedezBenz.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
-        [mercedezBenz.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
-        
-        [self.delegate addNewCar:self newCarDictionary:mercedezBenz.descriptionCarDictionary];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.mercedesBenzDelegate addNewCar:self mercedesBenzDictionary:self.carDicionary];
         
     } else if ([self.carCompanyLabel.text isEqualToString:@"Toyota"]) {
-        Toyota *toyota = [[Toyota alloc] init];
-        toyota.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
-        [toyota.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
-        [toyota.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
-        [toyota.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
-        [toyota.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
-        [toyota.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
-        
-        [self.delegate addNewCar:self newCarDictionary:toyota.descriptionCarDictionary];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.toyotaDelegate addNewCar:self toyotaDictionary:self.carDicionary];
         
     } else if ([self.carCompanyLabel.text isEqualToString:@"Volkswagen"]) {
-        Volkswagen *volkswagen = [[Volkswagen alloc] init];
-        volkswagen.descriptionCarDictionary = [[NSMutableDictionary alloc] init];
-        [volkswagen.descriptionCarDictionary setObject:self.carCompanyLabel.text forKey:@"CarCompany"];
-        [volkswagen.descriptionCarDictionary setObject:self.carModelTextField.text forKey:@"CarModel"];
-        [volkswagen.descriptionCarDictionary setObject:self.yearOfIssueTextField.text forKey:@"YearOfIssue"];
-        [volkswagen.descriptionCarDictionary setObject:self.colorTextField.text forKey:@"CarColor"];
-        [volkswagen.descriptionCarDictionary setObject:self.priceTextField.text forKey:@"CarPrice"];
-        
-        [self.delegate addNewCar:self newCarDictionary:volkswagen.descriptionCarDictionary];
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
+        [self.volkswagenDelegate addNewCar:self volkswagenDictionary:self.carDicionary];
     }
     
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonSaveUserInteraction" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (IBAction)carCompanyAction:(id)sender {
@@ -124,4 +212,34 @@
     [self.navigationController pushViewController:companyViewController animated:YES];
     
 }
+
+- (void)doneCarModel:(UIBarButtonItem *)barButton {
+    
+    if ([self.carCompanyLabel.text isEqualToString:@"BMW"]) {
+        self.carModelTextField.text = [self.bmwArray objectAtIndex:[self.modelPicker selectedRowInComponent:0]];
+      
+    } else if ([self.carCompanyLabel.text isEqualToString:@"Mercedes Benz"]) {
+        self.carModelTextField.text = [self.mercedesBenzArray objectAtIndex:[self.modelPicker selectedRowInComponent:0]];
+        
+    } else if ([self.carCompanyLabel.text isEqualToString:@"Toyota"]) {
+        self.carModelTextField.text = [self.toyotaArray objectAtIndex:[self.modelPicker selectedRowInComponent:0]];
+        
+    } else if ([self.carCompanyLabel.text isEqualToString:@"Volkswagen"]) {
+        self.carModelTextField.text = [self.volkswagenArray objectAtIndex:[self.modelPicker selectedRowInComponent:0]];
+        
+    }
+    [self.yearOfIssueTextField becomeFirstResponder];
+}
+
+- (void)doneCarColor:(UIBarButtonItem *)barButton {
+    
+    self.colorTextField.text = [self.carColor.colorArray objectAtIndex:[self.colorPicker selectedRowInComponent:0]];
+    [self.priceTextField becomeFirstResponder];
+}
+
+- (void)doneCarYear:(UIBarButtonItem *)barButton {
+
+    [self.colorTextField becomeFirstResponder];
+}
+
 @end

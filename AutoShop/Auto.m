@@ -10,12 +10,15 @@
 
 @implementation Auto
 
-- (NSArray *)carCompanyArray {
+- (id)init
+{
+    self = [super init];
     
-    self.modelArray = [[NSArray alloc] initWithObjects:@"BMW", @"Mercedes Benz", @"Toyota", @"Volkswagen", nil];
+    if (self) {
+        self.modelArray = [[NSArray alloc] initWithObjects:@"BMW", @"Mercedes Benz", @"Toyota", @"Volkswagen", nil];
+    }
     
-    return self.modelArray;
-    
+    return self;
 }
 
 @end

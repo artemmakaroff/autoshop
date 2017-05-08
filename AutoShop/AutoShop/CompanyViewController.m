@@ -19,11 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Auto *autoModel = [[Auto alloc] init];
-    
-    self.carsArray = [autoModel carCompanyArray];
-    
-    
+    self.autoClass = [[Auto alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +32,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.carsArray.count;
+    return self.autoClass.modelArray.count;
 }
 
 
@@ -44,14 +41,10 @@
     static NSString *cellIdentifier = @"cellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
     
     cell.textLabel.font = [UIFont systemFontOfSize:12.0];
     
-    cell.textLabel.text = [self.carsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.autoClass.modelArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -60,7 +53,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"buttonSaveUserInteraction" object:nil];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
@@ -68,8 +60,7 @@
     
     NSInteger row = indexPath.row;
     
-    NSString *string = [NSString stringWithFormat:@"%@", self.carsArray[row]];
-    
+    NSString *string = [NSString stringWithFormat:@"%@", self.autoClass.modelArray[row]];
     
     [self.delegate addCompanyCar:self didFinishEnterString:string];
     

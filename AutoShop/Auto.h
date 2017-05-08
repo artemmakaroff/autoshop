@@ -10,14 +10,7 @@
 
 @interface Auto : NSObject
 
-@property (strong, nonatomic)NSString *carName;
-@property (strong, nonatomic)NSArray *modelArray;
-@property (strong, nonatomic)NSNumber *yearOfIssue;
-@property (strong, nonatomic)NSString *color;
-@property (strong, nonatomic)NSNumber *price;
-@property (strong, nonatomic)NSMutableDictionary *descriptionCarDictionary;
-@property (strong, nonatomic) NSMutableArray *carMutableArray;
-
-- (NSArray *)carCompanyArray;
+@property (strong, nonatomic) NSArray *modelArray;
+@property (strong, nonatomic) NSMutableDictionary *descriptionCarDictionary;
 
 @end

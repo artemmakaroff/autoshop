@@ -9,9 +9,9 @@
 #import "MainViewController.h"
 #import "NewCarViewController.h"
 #import "MainViewCell.h"
-#import "BMW.h"
+#import "DetailViewController.h"
 
-@interface MainViewController () <NewCarViewControllerDelegate>
+@interface MainViewController () <UITableViewDelegate>
 
 @end
 
@@ -20,10 +20,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    Auto *autoCar = [[Auto alloc] init];
+    self.tableView.delegate = self;
     
-    self.array = [autoCar carCompanyArray];
+    self.bmw = [[BMW alloc] init];
+    self.mercedesBenz = [[MercedezBenz alloc] init];
+    self.toyota = [[Toyota alloc] init];
+    self.volkswagen = [[Volkswagen alloc] init];
     
+    self.sectionArray = [[NSMutableArray alloc] init];
+    [self.sectionArray addObject:self.bmw.bmwArray];
+    [self.sectionArray addObject:self.mercedesBenz.mercedezBenzArray];
+    [self.sectionArray addObject:self.toyota.toyotaArray];
+    [self.sectionArray addObject:self.volkswagen.volkswagenArray];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(buttonSaveUserInteraction)
+               name:@"buttonSaveUserInteraction"
+             object:nil];
+    
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,24 +50,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Delegates
+#pragma mark - Notifications
 
-- (void)addNewCar:(NewCarViewController *)controller newCarDictionary:(NSDictionary *)dictionary {
+- (void)buttonSaveUserInteraction {
     
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    return self.sectionArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.array.count;
+
+    return [[self.sectionArray objectAtIndex:section] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (self.bmw.bmwArray.count > 0 && section == 0) {
+        return @"BMW";
+    } else if (self.mercedesBenz.mercedezBenzArray.count > 0 && section == 1) {
+        return @"Mercedes benz";
+    } else if (self.toyota.toyotaArray.count > 0 && section == 2) {
+        return @"Toyota";
+    } else if (self.volkswagen.volkswagenArray.count > 0 && section == 3) {
+        return @"Volkswagen";
+    } else {
+        return @"";
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -56,55 +90,35 @@
     
     MainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.modelNameLabel.text = [self.array objectAtIndex:indexPath.row];
+    if (cell == nil) {
+        cell = [[MainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    }
+    
+    self.rowDictionary = [[self.sectionArray objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+    
+    cell.modelNameLabel.text = [NSString stringWithFormat:@"Авто: %@ %@", [self.rowDictionary objectForKey:@"CarCompany"],
+                                                                    [self.rowDictionary objectForKey:@"CarModel"]];
+    cell.yearOfIssueLabel.text = [NSString stringWithFormat:@"Год выпуска: %@", [self.rowDictionary objectForKey:@"YearOfIssue"]];
+    cell.colorLabel.text = [NSString stringWithFormat:@"Цвет: %@", [self.rowDictionary objectForKey:@"CarColor"]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"Цена: %@", [self.rowDictionary objectForKey:@"CarPrice"]];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       NSURL *url = [NSURL URLWithString:[self.rowDictionary objectForKey:@"URLCar"]];
+                       NSData *data = [NSData dataWithContentsOfURL:url];
+                       
+                       dispatch_sync(dispatch_get_main_queue(), ^{
+                           
+                           UIImage *img = [[UIImage alloc] initWithData:data];
+                           cell.carImageView.image = img;
+                           
+                       });
+                       
+                   });
     
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Actions
 
@@ -114,9 +128,23 @@
     
     NewCarViewController *newCarViewController = [storyboard instantiateViewControllerWithIdentifier:@"NewCarViewController"];
     
-    newCarViewController.delegate = self;
+    newCarViewController.bmwDelegate = self.bmw;
+    newCarViewController.mercedesBenzDelegate = self.mercedesBenz;
+    newCarViewController.toyotaDelegate = self.toyota;
+    newCarViewController.volkswagenDelegate = self.volkswagen;
+    
+    newCarViewController.bmwArray = self.bmw.modelArray;
+    newCarViewController.mercedesBenzArray = self.mercedesBenz.modelArray;
+    newCarViewController.toyotaArray = self.toyota.modelArray;
+    newCarViewController.volkswagenArray = self.volkswagen.modelArray;
     
     [self.navigationController pushViewController:newCarViewController animated:YES];
     
 }
+
+
+
+
+
+
 @end
